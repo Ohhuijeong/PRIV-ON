@@ -13,6 +13,22 @@ header {
     color: var(--color-white);
 }
 
+header:hover {
+    background: var(--color-white);
+}
+
+header:hover .logo a {
+    color: var(--color-black);
+}
+
+header:hover .gnb-list a {
+    color: var(--color-black);
+}
+
 .logo a {
+    color: var(--color-white);
+}
+
+.gnb .gnb-list a {
     color: var(--color-white);
 }
