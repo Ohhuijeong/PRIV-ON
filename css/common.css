@@ -63,6 +63,7 @@ header .header-inner {
     font-weight: 700;
     font-size: 30px;
     color: var(--color-black);
+    transition: 0.3s;
 }
 
 .logo a span {
@@ -95,17 +96,19 @@ header .header-inner {
     font-family: 'Noto Sans KR';
     font-size: 16px;
     position: relative;
+    transition: 0.3s;
 }
 
 .gnb-list li a::before {
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 3px;
     bottom: -1px;
-    left: 0;
-    background: var(--color-darkGray);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary);
     content: '';
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 .gnb-list li a:hover::before {
