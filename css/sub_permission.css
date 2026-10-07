@@ -1,2 +1,169 @@
 @charset "utf-8";
 @import url(common.css);
+
+.hero {
+    position: relative;
+    background: var(--color-sectionBg);
+}
+
+.img-text::before {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    width: 800px;
+    aspect-ratio: 3912 / 1776;
+    /* 높이 자동 계산 (약 363px) */
+    background: url(../img/sub-permission/allow-all-title_3912x1776_sharp.png) no-repeat center/contain;
+
+    content: '';
+}
+
+.img-phone::before {
+    position: absolute;
+    top: 55%;
+    right: 15%;
+    transform: translateY(-50%);
+    width: 519px;
+    height: 828px;
+    background: url(../img/sub-permission/기울어진\ 앱\ 권한\ 관리\ 스마트폰ver2.png) no-repeat center/contain;
+
+    content: '';
+}
+
+/* sec-compliance */
+.compliance-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.compliance-text {
+    padding-left: 10%;
+}
+
+.compliance-text .label {
+    font-size: 20px;
+    color: var(--color-darkGray);
+    margin-bottom: 10px;
+}
+
+.compliance-text .big {
+    font-family: var(--font-textG);
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--color-darkGray);
+    margin-bottom: 20px;
+    word-break: keep-all;
+}
+
+.compliance-text .desc {
+    font-size: 24px;
+    color: #666666;
+    margin-bottom: 24px;
+}
+
+.compliance-text .source {
+    font-size: 15px;
+    color: #666666;
+}
+
+.donut-area {
+    flex-shrink: 0;
+    /* 차트는 줄어들지 않게 */
+    margin-right: 3%;
+}
+
+/* --percent를 '숫자'로 등록 → transition으로 0 → 54.7 부드럽게 변함 */
+@property --percent {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+}
+
+/* 도넛 = conic-gradient(원형 그라데이션)로 그림 */
+.donut {
+    --size: 456px;
+    --percent: var(--target);
+    /* 기본: 목표값 (JS 없어도 정상 표시) */
+    position: relative;
+    width: var(--size);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    /* 0 ~ percent% 는 파랑, 나머지는 회색 */
+    background: conic-gradient(var(--color-primary) 0 calc(var(--percent) * 1%),
+            var(--color-lightGray) 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* JS가 붙이는 상태 class */
+.donut.is-wait {
+    --percent: 0;
+    /* 대기: 0%에서 멈춤 */
+}
+
+.donut.is-play {
+    transition: --percent 1.6s ease-out;
+    /* 재생: 0 → 목표값 */
+}
+
+/* 가운데 흰 원으로 구멍 뚫기 */
+.donut-center {
+    width: 75%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+.donut-center .num {
+    font-family: 'Outfit', sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1;
+}
+
+.donut-center .txt {
+    font-size: 22px;
+    color: #666666;
+}
+
+/* 범례 */
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.legend span {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* 동그라미 점 */
+.legend span::before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+}
+
+.legend .dot-on::before {
+    background: var(--color-primary);
+}
+
+.legend .dot-off::before {
+    background: var(--color-lightGray);
+}
