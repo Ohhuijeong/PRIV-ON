@@ -1,13 +1,84 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>sub-permission</title>
 
     <link rel="stylesheet" href="css/sub_permission.css">
 </head>
+
 <body>
-    
+    <div id="wrap">
+        <section class="hero">
+            <header class="header">
+                <div class="header-inner">
+                    <h1 class="logo">
+                        <a href="index.html">PRIV:<span>ON</span></a>
+                    </h1>
+
+                    <nav class="gnb">
+                        <ul class="gnb-list">
+                            <li><a href="sub_about.html">캠페인 소개</a></li>
+                            <li><a href="sub_permission.html">권한 점검 가이드</a></li>
+                            <li><a href="sub_checklist.html">실전 체크가이드</a></li>
+                            <li><a href="sub_news.html">소식</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <div class="img-text"></div>
+            <div class="img-phone"></div>
+        </section>
+
+        <section class="sec-vh compliance">
+            <div class="inner">
+                <div class="title">
+                    <p class="sub-title">
+                        개인정보보호위원회 실태점검 결과
+                    </p>
+                    <h3>모바일 앱 고지의무 준수 현황</h3>
+                </div>
+                <div class="contents">
+                    <div class="text-group">
+                        <p class="label">국내 3,6000여 개 모바일 앱 점검</p>
+                        <strong class="big">법정 고지의무 준수율</strong>
+                        <p class="desc">
+                            절반 가까운 앱이 정보주체 고지 사항을 미흡하게 처리
+                        </p>
+                        <span class="source">출처: 개인정보보호위원회 실태점검 결과</span>
+
+                        <figure class="donut-area">
+                            <!-- --target 값 = 최종 퍼센트 (바꿀 때 aria-label, 범례도 같이) -->
+                            <div class="donut" style="--target: 54.7;" role="img" aria-label="고지의무 준수 54.7%, 미준수 45.3%">
+                                <div class="donut-center">
+                                    <span class="num">54.7%</span>
+                                    <span class="txt">고지의무 준수</span>
+                                </div>
+                            </div>
+                            <figcaption class="legend">
+                                <span class="dot-on">준수 54.7%</span>
+                                <span class="dot-off">미준수 45.3%</span>
+                            </figcaption>
+                        </figure>
+                    </div>
+
+        </section>
+    </div>
+
+
+    <script>
+        const donut = document.querySelector('.donut');
+
+        const observer = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) {
+                donut.classList.add('on');
+            }
+        });
+
+        observer.observe(donut);
+    </script>
 </body>
+
 </html>
