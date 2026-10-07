@@ -4,103 +4,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>check-list</title>
 
     <link rel="stylesheet" href="css/sub_checklist.css">
 </head>
 
 <body>
-    <main class="check-guide">
-        <section class="guide-hero">
-            <div class=" inner hero-inner">
-                <div class="hero-text">
-                    <span class="eyebrow">APP PERMISSION CHECK</span>
-                    <h1>
-                        내 앱 권한, <br>
-                        필요한 만큼만 <strong>ON.</strong>
-                    </h1>
+    <div class="wrap">
 
-                    <p>불필요한 접근 권한은 끄고, 내 개인정보는 지켜요.</p>
-                </div>
-                <div class="hero-visual">
-                    <img src="image/check-guide/hero-image.png" alt="">
-                </div>
-            </div>
-        </section>
-        <section class="permission-steps">
-            <div class="permission-steps_inner">
-                <div class="section-title">
-                    <span class="blue">30초 가이드</span>
-                    <h2>3단계 30초 앱 권한 다이어트</h2>
-                </div>
-                <div class="permission-steps_list">
-                    <div class="permission-step">
-                        <ul>
-                            <li><img src="image/check-guide/Gear.png" alt="설정메뉴"><strong>설정 메뉴 진입</strong>
-                                <p class="sub-text">스마트폰의 설정을 실행해요.</p>
-                            </li>
-                            <li><img src="image/check-guide/document 1.png " alt="문서아이콘"><strong>권한 관리자 확인</strong>
-                                <p class="sub-text">개인정보 보호 도는 앱 권한 <br>메뉴를 찾아요.</p>
-                            </li>
-                            <li><img src="image/check-guide/on.png" alt="on"><strong>불필요한 권한 차단</strong>
-                                <p class="sub-text">필요없는 권한을 OFF로 <br>
-                                    바꿔요.</p>
-                            </li>
-                        </ul>
-                        <p class="info"><img src="image/check-guide/Info.png" alt="">
-                            <span>메뉴 이름과 경로는 기기 및 OS버전에 따라 달라요.</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="device-guide">
-            <div class="device-guide_inner">
-                <div class="section-title">
-                    <span class="blue">나에게 맞는 방법은?</span>
-                    <h2>내 기기에 맞게 따라 해보세요</h2>
-                </div>
-                <div class="device-tabs">
-                    <div class="iphone"><img src="image/check-guide/applelogo 1.png" alt="애플로고">
-                        <p>iPhone</p>
-                    </div>
-                    <div class="galaxy"><img src="image/check-guide/galaxy 1.png" alt="galaxy">
-                        <p>Android</p>
-                    </div>
-                </div>
-                <div class="device-guide_content">
-                    <div class="iphone-inner">
-                        <div class="device-image"><img src="image/check-guide/iphone 1.png" alt="iphone"></div>
-                        <ul>
-                            <li><span>1</span>
-                                <p>설정 → 개인정보 보호 및 보안</p>
-                            </li>
-                            <li><span>2</span>
-                                <p>위치 • 연락처 • 카메라등 권한 확인</p>
-                            </li>
-                            <li><span>3</span>
-                                <p>앱별로 필요한 접근만 허용</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="galaxy-inner"><img src="image/check-guide/galaxy 1.png" alt="iphone">
-                        <ul>
-                            <li><span>1</span>
-                                <p>설정에서 권한 관리자 검색</p>
-                            </li>
-                            <li><span>2</span>
-                                <p>권한별 앱 접근 상태 확인</p>
-                            </li>
-                            <li><span>3</span>
-                                <p>불필요한 접근 권한 제한</p>
-                            </li>
-                        </ul>
-                    </div>
+        <header class="header">
+            <div class="header-inner">
+                <h1 class="logo">
+                    <a href="index.html">PRIV:<span>ON</span></a>
+                </h1>
 
-                </div>
+                <nav class="gnb">
+                    <ul class="gnb-list">
+                        <li><a href="sub_about.html">캠페인 소개</a></li>
+                        <li><a href="sub_permission.html">권한 점검 가이드</a></li>
+                        <li><a href="sub_checklist.html">실전 체크가이드</a></li>
+                        <li><a href="sub_news.html">소식</a></li>
+                    </ul>
+                </nav>
             </div>
-        </section>
-    </main>
+        </header>
+
+        <main class="check-guide">
+            <section class="guide-hero">
+                <div class=" inner hero-inner">
+                    <div class="hero-text">
+                        <span class="eyebrow">APP PERMISSION CHECK</span>
+                        <h2>
+                            내 앱 권한, <br>
+                            필요한 만큼만 <span>ON.</span>
+                        </h2>
+
+                        <p>불필요한 접근 권한은 끄고, 내 개인정보는 지켜요.</p>
+                    </div>
+                    <div class="hero-visual">
+                        <img src="img/checklist/hero-image.png" alt="">
+                    </div>
+                </div>
+            </section>
+            <section class="permission-steps">
+                <div class="permission-steps_inner">
+                    <div class="section-title">
+                        <span class="blue">30초 가이드</span>
+                        <h3>3단계 30초 앱 권한 다이어트</h3>
+                    </div>
+                    <div class="permission-steps_list">
+                        <div class="permission-step">
+                            <ul>
+                                <li><img src="img/checklist/Gear.png" alt="설정메뉴"><strong>설정 메뉴 진입</strong>
+                                    <p class="sub-text">스마트폰의 설정을 실행해요.</p>
+                                </li>
+                                <li><img src="img/checklist/document 1.png " alt="문서아이콘"><strong>권한 관리자 확인</strong>
+                                    <p class="sub-text">개인정보 보호 또는 앱 권한 <br>메뉴를 찾아요.</p>
+                                </li>
+                                <li><img src="img/checklist/on.png" alt="on"><strong>불필요한 권한 차단</strong>
+                                    <p class="sub-text">필요없는 권한을 OFF로 <br>
+                                        바꿔요.</p>
+                                </li>
+                            </ul>
+                            <p class="info"><img src="img/checklist/Info.png" alt="">
+                                <span>메뉴 이름과 경로는 기기 및 OS버전에 따라 달라요.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="device-guide">
+                <div class="device-guide_inner">
+                    <div class="section-title">
+                        <span class="blue">나에게 맞는 방법은?</span>
+                        <h3>내 기기에 맞게 따라 해보세요</h3>
+                    </div>
+                    <div class="device-tabs">
+                        <div class="iphone"><img src="img/checklist/icon-apple-black-logo.png" alt="애플로고">
+                            <p>iPhone</p>
+                        </div>
+                        <div class="galaxy"><img src="img/checklist/icon-android.png" alt="galaxy">
+                            <p>Android</p>
+                        </div>
+                    </div>
+                    <div class="device-guide_content">
+                        <div class="iphone-inner">
+                            <div class="device-image"><img src="img/checklist/iphone 1.png" alt="iphone"></div>
+                            <ul>
+                                <li><span>1</span>
+                                    <p>설정 → 개인정보 보호 및 보안</p>
+                                </li>
+                                <li><span>2</span>
+                                    <p>위치 • 연락처 • 카메라등 권한 확인</p>
+                                </li>
+                                <li><span>3</span>
+                                    <p>앱별로 필요한 접근만 허용</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="galaxy-inner"><img src="img/checklist/galaxy 1.png" alt="galaxy">
+                            <ul>
+                                <li><span>1</span>
+                                    <p>설정에서 권한 관리자 검색</p>
+                                </li>
+                                <li><span>2</span>
+                                    <p>권한별 앱 접근 상태 확인</p>
+                                </li>
+                                <li><span>3</span>
+                                    <p>불필요한 접근 권한 제한</p>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="permission-check">
+                <div class="permission-check_inner">
+                    <div class="section-title">
+                        <span class="blue">무슨 권한이 있을까?</span>
+                        <h3>어떤 권한부터 확인할까요?</h3>
+                    </div>
+                    <ul class="list">
+                        <li class="position">
+                            <img src="img/checklist/maps-and-flags 1.png" alt="위치">
+                            <span class="text">위치 </span>
+                            <p class="sub-text">필요없는 권한을 OFF로 바꿔요.</p>
+                        </li>
+                        <li class="manager">
+                            <img src="img/checklist/user 1.png" alt="유저">
+                            <span class="text">연락처</span>
+                            <p class="sub-text">앱에 내 연락처에<br>접근해야 하나요?</p>
+                        </li>
+                        <li class="camera">
+                            <img src="img/checklist/microphoneshape 1.png" alt="마이크">
+                            <span class="text">카메라 • 마이크</span>
+                            <p class="sub-text">앱이 카메라나 마이크를<br>사용할 필요가 있나요?</p>
+                        </li>
+                    </ul>
+                    <p class="info"><img src="img/checklist/Info.png" alt="">
+                        <span>앱 기능에 꼭 필요한 권한만 허용하세요.</span>
+                    </p>
+                </div>
+            </section>
+            <section class="permission-checklist">
+                <div class="permission-checklist_inner">
+                    <div class="section-title">
+                        <span class="blue">오늘 실천 체크</span>
+                        <h3>오늘의 권한 점검, 완료했나요?</h3>
+                    </div>
+                    <div class="checklist-box">
+                        <div class="checklist">
+                            <div class="set">
+                                <input type="checkbox" id="check1" class="check-input">
+
+                                <label for="check1" class="check-label">
+                                    <span class="check-icon"></span>
+
+                                    <span class="check-text">
+                                        설정에서 권한 메뉴를 찾았어요.
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="set">
+                                <input type="checkbox" id="check2" class="check-input">
+
+                                <label for="check2" class="check-label">
+                                    <span class="check-icon"></span>
+
+                                    <span class="check-text">
+                                        앱별 접근 권한을 확인했어요.
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="set">
+                                <input type="checkbox" id="check3" class="check-input">
+
+                                <label for="check3" class="check-label">
+                                    <span class="check-icon"></span>
+
+                                    <span class="check-text">
+                                        불필요한 권한을 껐어요.
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="check-checkbox">
+                            <div class="container">
+                                <img src="img/checklist/check.png" alt="확인">
+                                <strong>오늘의 권한 점검 완료</strong>
+                                <p>내 개인정보를 지키는<br>좋은 습관이에요.</p><img src="img/checklist/heart.png" alt="">
+                            </div>
+                        </div>
+                        <div class="check-button">
+                            <button>점검 완료 체크하기</button>
+                        </div>
+                    </div>
+                    <p class="info"><img src="img/checklist/Info.png" alt="">
+                        <span>필요한 권한을 끄면 일부 기능이 제한될 수 있어요.</span>
+                    </p>
+                </div>
+
+            </section>
+        </main>
+
+    </div>
 </body>
 
 </html>
