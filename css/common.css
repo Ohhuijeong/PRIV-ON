@@ -18,7 +18,7 @@ section {
 
 h2 {
     font-family: 'Noto Sans KR';
-    font-size: 70px;
+    font-size: 60px;
     font-weight: 700;
     color: var(--color-black);
     margin-bottom: 50px;
@@ -26,6 +26,11 @@ h2 {
 
 h2>span {
     color: var(--color-primary);
+}
+
+.small-title {
+    font-family: 'Noto Sans KR';
+    font-size: 22px;
 }
 
 h3 {

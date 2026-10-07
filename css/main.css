@@ -1,11 +1,13 @@
 @charset "utf-8";
 @import url(common.css);
+
 section {
     padding: 0;
 }
 
 .hero {
-    background: url(../img/main/hero.png) no-repeat center/cover;
+    position: relative;
+    background: linear-gradient(to bottom, rgba(238, 238, 238, .3), rgba(34, 34, 34, .3)), url(../img/main/hero.png) no-repeat center/cover;
 }
 
 header {
@@ -33,4 +35,190 @@ header:hover .gnb-list a {
 
 .gnb .gnb-list a {
     color: var(--color-white);
+}
+
+.mainText {
+    position: relative;
+}
+
+.main-topText {
+    position: absolute;
+    top: 29%;
+    left: 200px;
+}
+
+.main-topText .title {
+    font-family: var(--font-EnTitle);
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--color-veryLightGray);
+    margin-bottom: 0;
+}
+
+.main-topText .sub-title {
+    font-family: var(--font-textP);
+    color: var(--color-veryLightGray);
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.main-botText {
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.6;
+    color: var(--color-lightGray);
+    font-size: 18px;
+
+    position: absolute;
+    bottom: 15%;
+    left: 200px;
+}
+
+.main-botText strong {
+    font-size: 20px;
+}
+
+/* about */
+.about {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 50%, #fff 0%, #eaf5fc 55%, #cfe7f6 100%)
+}
+
+.about::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transition: opacity 1.2s ease;
+    opacity: 1;
+    background: radial-gradient(circle at 50% 0%, #AFBDC9 0%, #AEBCC6 13%, #7A8C98 50%, #344957 100%)
+}
+
+.about.on::before {
+    opacity: 0
+}
+
+.about>* {
+    position: relative
+}
+
+.msg {
+    margin: 60px 0 30px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.title {
+    font-family: var(--font-textP);
+    color: var(--color-navy);
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 2;
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px
+}
+
+.toggle-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.track {
+    width: 56px;
+    height: 30px;
+    border-radius: 99px;
+    background: #AAA;
+    position: relative;
+    transition: background .3s
+}
+
+.knob {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform .3s
+}
+
+.toggle-input:checked+.track {
+    background: var(--color-primaryLight)
+}
+
+.toggle-input:checked+.track .knob {
+    transform: translateX(27px)
+}
+
+.cards {
+    display: flex;
+    gap: 50px;
+    margin-top: 64px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.card {
+    width: 380px;
+    height: 293px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 26px rgba(40, 60, 90, .2);
+    background: linear-gradient(90deg, #fff 0%, #d3e9f0 100%);
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity .7s ease, transform .7s ease
+}
+
+.card.show {
+    opacity: 1;
+    transform: none
+}
+
+.card h3 {
+    margin: 0;
+    padding: 14px 0 12px;
+    background: #fff;
+    text-align: center;
+    font-family: var(--font-EnTitle);
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--color-darkNavy);
+    border-top: 8px solid #d3e9f0
+}
+
+.card h3 small {
+    font-family: var(--font-textP);
+    font-size: 26px;
+    font-weight: 400;
+    margin-left: 14px
+}
+
+.card div {
+    padding: 38px 40px 30px;
+    font-size: 20px;
+    line-height: 1.6
+}
+
+.card p {
+    font-family: var(--font-textG);
+    margin: 0 0 18px
+}
+
+/* sec-priv */
+.sec_priv {
+    background: linear-gradient(rgba(34, 34, 34, .3), rgba(34, 34, 34, .3)), url(../img/main/sec_priv.png) no-repeat center/cover;
 }
