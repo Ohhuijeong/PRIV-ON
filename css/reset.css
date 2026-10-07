@@ -16,9 +16,12 @@
   --color-darkGray: #353535;
   --color-black: #222222;
   --color-border: #b7b7b7;
+  --color-navy: #352f63;
+  --color-darkNavy: #1d2b45;
 
   --font-textG: 'GMarketSans', sans-serif;
   --font-textN: 'Noto Sans KR', sans-serif;
+  --font-textP: 'Pretendard Variable', sans-serif;
   --font-EnTitle: 'Aggravo', sans-serif;
   --box-shadow: 5px 5px 30px rgba(92, 125, 164, 0.1);
 }

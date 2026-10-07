@@ -7,6 +7,7 @@
     <title>PRIV:ON</title>
 
     <link rel="stylesheet" href="css/main.css">
+    <script src="js/mainScript.js" defer></script>
 </head>
 
 <body>
@@ -30,7 +31,7 @@
             </header>
             <div class="main-topText">
                 <h2 class="title">PRIV:ON, STAY SAFE</h2>
-                <h3 class="sub-title"></h3>
+                <h3 class="sub-title">나의 정보, 내가 지키는 작은 습관</h3>
             </div>
             <div class="main-botText">
                 <p>
@@ -38,6 +39,71 @@
                     일상 속 무심코 남기는 개인정보부터 디지털 공간에 기록되는 나의 흔적까지. <br>
                     개인정보 유출을 예방하고 안전한 디지털 생활을 위한 작은 실천을 함께 시작합니다.
                 </p>
+            </div>
+        </section>
+
+        <section class="about sec-vh" id="about">
+            <p class="msg">개인정보 보호 스위치를 켜주세요.</p>
+
+            <div class="title">
+                PRIV:<label class="toggle-label">
+                    <input class="toggle-input" id="sw" type="checkbox" aria-label="개인정보 보호 스위치">
+                    <span class="track" aria-hidden="true"><span class="knob"></span></span>
+                </label><span id="suffix" aria-live="polite">FF</span>
+            </div>
+
+            <!-- 카드 영역: 왼쪽 먼저, 1초 뒤 오른쪽 -->
+            <div class="cards">
+                <article class="card" id="c1">
+                    <h3>PRIV<small>(Private)</small></h3>
+                    <div>
+                        <p>[사적인, 비공개의]</p>
+                        <p>무심코 챙기지 못한 개인정보</p>
+                    </div>
+                </article>
+
+                <article class="card" id="c2">
+                    <h3>ON<small>(Switch On)</small></h3>
+                    <div>
+                        <p>[켜다, 실행하다]</p>
+                        <p>스위치를 켜듯<br>보호실천을 시작합니다</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="sec_priv sec-vh">
+            <div class="priv_list">
+                <ul>
+                    <li class="priv">
+                        <span>P</span>
+                        <div class="text">
+                            <p>Protect First</p>
+                            <p class="click">내 정보는 내가 먼저 지켜요.</p>
+                        </div>
+                    </li>
+                    <li class="priv">
+                        <span>R</span>
+                        <div class="text">
+                            <p>Review Permission</p>
+                            <p class="click">허용한 이용약관, 한번 더 확인해요.</p>
+                        </div>
+                    </li>
+                    <li class="priv">
+                        <span>I</span>
+                        <div class="text">
+                            <p>Invisible Risk</p>
+                            <p class="click">보이지 않는 위험이 당신의 개인정보를 노리고 있습니다.</p>
+                        </div>
+                    </li>
+                    <li class="priv">
+                        <span>V</span>
+                        <div class="text">
+                            <p>Verify Repeat</p>
+                            <p class="click">한번더, 반복해서 확인해요.</p>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
     </div>
