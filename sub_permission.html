@@ -32,52 +32,111 @@
             <div class="img-phone"></div>
         </section>
 
-        <section class="sec-vh compliance">
+        <section class="sec-compliance">
             <div class="inner">
                 <div class="title">
-                    <p class="sub-title">
-                        개인정보보호위원회 실태점검 결과
-                    </p>
+                    <p class="sub-title">개인정보보호위원회 실태점검 결과</p>
                     <h3>모바일 앱 고지의무 준수 현황</h3>
                 </div>
-                <div class="contents">
-                    <div class="text-group">
-                        <p class="label">국내 3,6000여 개 모바일 앱 점검</p>
+
+                <div class="compliance-wrap">
+                    <!-- 왼쪽: 글자 -->
+                    <div class="compliance-text">
+                        <p class="label">국내 3,600여 개 모바일 앱 점검</p>
                         <strong class="big">법정 고지의무 준수율</strong>
-                        <p class="desc">
-                            절반 가까운 앱이 정보주체 고지 사항을 미흡하게 처리
-                        </p>
+                        <p class="desc">절반 가까운 앱이 정보주체 고지 사항을 미흡하게 처리</p>
                         <span class="source">출처: 개인정보보호위원회 실태점검 결과</span>
-
-                        <figure class="donut-area">
-                            <!-- --target 값 = 최종 퍼센트 (바꿀 때 aria-label, 범례도 같이) -->
-                            <div class="donut" style="--target: 54.7;" role="img" aria-label="고지의무 준수 54.7%, 미준수 45.3%">
-                                <div class="donut-center">
-                                    <span class="num">54.7%</span>
-                                    <span class="txt">고지의무 준수</span>
-                                </div>
-                            </div>
-                            <figcaption class="legend">
-                                <span class="dot-on">준수 54.7%</span>
-                                <span class="dot-off">미준수 45.3%</span>
-                            </figcaption>
-                        </figure>
                     </div>
+                    <!-- //compliance-text  ← 여기서 글자 상자 닫기 -->
 
+                    <!-- 오른쪽: 도넛 -->
+                    <figure class="donut-area">
+                        <div class="donut" style="--target: 54.7;" role="img" aria-label="고지의무 준수 54.7%, 미준수 45.3%">
+                            <div class="donut-center">
+                                <span class="num">54.7%</span>
+                                <span class="txt">고지의무 준수</span>
+                            </div>
+                        </div>
+                        <figcaption class="legend">
+                            <span class="dot-on">준수 54.7%</span>
+                            <span class="dot-off">미준수 45.3%</span>
+                        </figcaption>
+                    </figure>
+                </div>
+                <!-- //compliance-wrap -->
+            </div>
+            <!-- //inner -->
         </section>
     </div>
 
 
     <script>
-        const donut = document.querySelector('.donut');
+        // 도넛 차트: 화면에 보일 때마다 0부터 차오르기
+        const donuts = document.querySelectorAll('.donut');
 
-        const observer = new IntersectionObserver(function (entries) {
-            if (entries[0].isIntersecting) {
-                donut.classList.add('on');
+        // '동작 줄이기' 설정한 사용자는 애니메이션 없이 바로 표시 (접근성)
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!reduceMotion && 'IntersectionObserver' in window) {
+            // 1) 처음엔 전부 0으로 대기
+            donuts.forEach(function (donut) {
+                reset(donut);
+            });
+
+            // 2) 보이는 비율이 0%, 50%를 지날 때마다 확인
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    const donut = entry.target;
+
+                    // 50% 이상 보이고, 아직 재생 전이면 → 재생
+                    if (entry.intersectionRatio >= 0.5 && !donut.classList.contains('is-play')) {
+                        play(donut);
+                    }
+
+                    // 화면 밖으로 완전히 나가면 → 0으로 되돌리기
+                    if (!entry.isIntersecting) {
+                        reset(donut);
+                    }
+                });
+            }, { threshold: [0, 0.5] });
+
+            donuts.forEach(function (donut) {
+                observer.observe(donut);
+            });
+        }
+
+        // 재생: 게이지 차오르기 + 숫자 올라가기
+        function play(donut) {
+            donut.classList.add('is-play');
+            donut.classList.remove('is-wait');
+            countUp(donut);
+        }
+
+        // 초기화: 게이지 0, 숫자 0%
+        function reset(donut) {
+            donut.classList.add('is-wait');
+            donut.classList.remove('is-play');            // transition 없어서 0으로 즉시 돌아감
+            cancelAnimationFrame(donut.rafId);            // 숫자 올라가던 중이면 멈춤
+            donut.querySelector('.num').textContent = '0%';
+        }
+
+        // 가운데 숫자 0% → 54.7% (게이지와 같은 1.6초)
+        function countUp(donut) {
+            const target = parseFloat(getComputedStyle(donut).getPropertyValue('--target'));
+            const numEl = donut.querySelector('.num');
+            const duration = 1600;
+            const start = performance.now();
+
+            function tick(now) {
+                const progress = Math.min((now - start) / duration, 1); // 0 ~ 1 진행률
+                const eased = 1 - Math.pow(1 - progress, 3);            // 끝으로 갈수록 느려지게
+                numEl.textContent = (target * eased).toFixed(1) + '%';
+                if (progress < 1) {
+                    donut.rafId = requestAnimationFrame(tick);          // 멈출 수 있게 번호 저장
+                }
             }
-        });
-
-        observer.observe(donut);
+            donut.rafId = requestAnimationFrame(tick);
+        }
     </script>
 </body>
 
