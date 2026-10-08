@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import url(common.css);
 
+/* hero */
 .hero {
     position: relative;
     background: var(--color-sectionBg);
@@ -32,27 +33,37 @@
 }
 
 /* sec-compliance */
+.sec-compliance {
+    height: 920px;
+}
+
+.sec-compliance .inner {
+    min-height: 720px;
+    padding-top: 85px;
+}
+
 .compliance-wrap {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 60px;
+    gap: 180px;
 }
 
 .compliance-text {
-    padding-left: 10%;
+    padding-left: 5%;
 }
 
 .compliance-text .label {
     font-size: 20px;
+    font-weight: 600;
     color: var(--color-darkGray);
     margin-bottom: 10px;
 }
 
 .compliance-text .big {
-    font-family: var(--font-textG);
+    font-family: var(--font-textP);
     font-size: 72px;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--color-darkGray);
     margin-bottom: 20px;
     word-break: keep-all;
@@ -60,13 +71,14 @@
 
 .compliance-text .desc {
     font-size: 24px;
-    color: #666666;
+    font-weight: 600;
+    color: #797979;
     margin-bottom: 24px;
 }
 
 .compliance-text .source {
-    font-size: 15px;
-    color: #666666;
+    font-size: 16px;
+    color: #797979;
 }
 
 .donut-area {
@@ -92,8 +104,7 @@
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     /* 0 ~ percent% 는 파랑, 나머지는 회색 */
-    background: conic-gradient(var(--color-primary) 0 calc(var(--percent) * 1%),
-            var(--color-lightGray) 0);
+    background: conic-gradient(var(--color-primary) 0 calc(var(--percent) * 1%), var(--color-lightGray) 0);
     display: flex;
     justify-content: center;
     align-items: center;

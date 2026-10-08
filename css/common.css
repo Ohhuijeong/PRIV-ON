@@ -49,6 +49,7 @@ strong {
     font-family: var(--font-textG);
     font-size: 16px;
     color: var(--color-subTitle);
+    margin-bottom: 24px;
 }
 
 .inner {
