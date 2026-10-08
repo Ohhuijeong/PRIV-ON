@@ -178,3 +178,90 @@
 .legend .dot-off::before {
     background: var(--color-lightGray);
 }
+
+/* sec-risk-data */
+.sec-risk-data {
+    background: var(--color-sectionBg)
+}
+
+.sec-risk-data .title {
+    margin-bottom: 120px;
+}
+
+.stat-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.stat-list li {
+    width: 440px;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--color-white);
+    border-radius: 20px;
+
+    font-family: var(--font-textN);
+    text-align: center;
+}
+
+.stat-list li .stat-value {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 62px;
+    color: var(--color-primaryLight);
+
+    margin-bottom: 27px;
+}
+
+.stat-list li .stat-label {
+    font-size: 25px;
+    font-weight: 600px;
+
+    margin-bottom: 23px;
+}
+
+.stat-list li .desc {
+    color: #707070;
+    font-weight: 500;
+}
+
+/* sec-risk-data 애니메이션 */
+
+/* ===== 숫자 카드 등장 애니메이션 ===== */
+/* 처음 상태: 안 보임 + 40px 아래 (JS가 ani 클래스를 붙였을 때만) */
+.stat-list.ani li {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* 화면에 들어오면(show) 제자리 + 보임 */
+.stat-list.ani.show li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 순서대로: 2번째는 0.2초, 3번째는 0.4초 늦게 시작 */
+.stat-list.ani.show li:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+.stat-list.ani.show li:nth-child(3) {
+    transition-delay: 0.8s;
+}
+
+/* 접근성: '동작 줄이기' 설정한 사용자는 애니메이션 없이 바로 보이게 */
+@media (prefers-reduced-motion: reduce) {
+    .stat-list.ani li {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/*  */

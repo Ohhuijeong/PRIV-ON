@@ -7,6 +7,7 @@
     <title>sub-permission</title>
 
     <link rel="stylesheet" href="css/sub_permission.css">
+    <script src="js/permissionScript.js" defer></script>
 </head>
 
 <body>
@@ -67,77 +68,66 @@
             </div>
             <!-- //inner -->
         </section>
+
+        <section class="sec-risk-data">
+            <div class="inner">
+                <div class="title">
+                    <p class="sub-title">데이터 제3자 제공 및 국외이전</p>
+                    <h3>증가하는 마케팅•광고 데이터 유출 리스크</h3>
+                </div>
+
+                <ul class="stat-list">
+                    <li>
+                        <div class="text-group">
+                            <strong class="stat-value">32.0%</strong>
+                            <h4 class="stat-label">정보제공 유형 비중</h4>
+                            <p class="desc">마케팅 및 통계 분석용</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="text-group">
+                            <strong class="stat-value">769개</strong>
+                            <h4 class="stat-label">국외이전 국내 앱 수</h4>
+                            <p class="desc">개인정보 해외 서버 전송</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="text-group">
+                            <strong class="stat-value">10.4%p↑</strong>
+                            <h4 class="stat-label">정보제공 유형 비중</h4>
+                            <p class="desc">마케팅 및 통계 분석용</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <footer class="footer">
+            <div class="inner">
+                <h2 class="foot-title">
+                    권한은 OFF, 보호는 ON. <br>30초면 충분합니다.
+                </h2>
+                <nav class="foot-gnb">
+                    <ul>
+                        <li><a href="#" class="policy">개인정보처리방침</a></li>
+                        <li><a href="sub_about.html">캠페인 소개</a></li>
+                        <li><a href="sub_permission.html">권한 점검 가이드</a></li>
+                        <li><a href="sub_checklist.html">실전 체크가이드</a></li>
+                        <li><a href="sub_news.html">소식</a></li>
+                    </ul>
+                </nav>
+                <h1 class="logo">
+                    <a href="index.html">PRIV:<span>ON</span></a>
+                </h1>
+                <p class="copy">
+                    &copy; 2026 PRIV:ON All rights reserved.
+                </p>
+            </div>
+        </footer>
     </div>
 
 
-    <script>
-        // 도넛 차트: 화면에 보일 때마다 0부터 차오르기
-        const donuts = document.querySelectorAll('.donut');
-
-        // '동작 줄이기' 설정한 사용자는 애니메이션 없이 바로 표시 (접근성)
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        if (!reduceMotion && 'IntersectionObserver' in window) {
-            // 1) 처음엔 전부 0으로 대기
-            donuts.forEach(function (donut) {
-                reset(donut);
-            });
-
-            // 2) 보이는 비율이 0%, 50%를 지날 때마다 확인
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    const donut = entry.target;
-
-                    // 50% 이상 보이고, 아직 재생 전이면 → 재생
-                    if (entry.intersectionRatio >= 0.5 && !donut.classList.contains('is-play')) {
-                        play(donut);
-                    }
-
-                    // 화면 밖으로 완전히 나가면 → 0으로 되돌리기
-                    if (!entry.isIntersecting) {
-                        reset(donut);
-                    }
-                });
-            }, { threshold: [0, 0.5] });
-
-            donuts.forEach(function (donut) {
-                observer.observe(donut);
-            });
-        }
-
-        // 재생: 게이지 차오르기 + 숫자 올라가기
-        function play(donut) {
-            donut.classList.add('is-play');
-            donut.classList.remove('is-wait');
-            countUp(donut);
-        }
-
-        // 초기화: 게이지 0, 숫자 0%
-        function reset(donut) {
-            donut.classList.add('is-wait');
-            donut.classList.remove('is-play');            // transition 없어서 0으로 즉시 돌아감
-            cancelAnimationFrame(donut.rafId);            // 숫자 올라가던 중이면 멈춤
-            donut.querySelector('.num').textContent = '0%';
-        }
-
-        // 가운데 숫자 0% → 54.7% (게이지와 같은 1.6초)
-        function countUp(donut) {
-            const target = parseFloat(getComputedStyle(donut).getPropertyValue('--target'));
-            const numEl = donut.querySelector('.num');
-            const duration = 1600;
-            const start = performance.now();
-
-            function tick(now) {
-                const progress = Math.min((now - start) / duration, 1); // 0 ~ 1 진행률
-                const eased = 1 - Math.pow(1 - progress, 3);            // 끝으로 갈수록 느려지게
-                numEl.textContent = (target * eased).toFixed(1) + '%';
-                if (progress < 1) {
-                    donut.rafId = requestAnimationFrame(tick);          // 멈출 수 있게 번호 저장
-                }
-            }
-            donut.rafId = requestAnimationFrame(tick);
-        }
-    </script>
 </body>
 
 </html>
