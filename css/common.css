@@ -139,6 +139,7 @@ header .header-inner {
     background: #353535;
     color: var(--color-white);
     position: relative;
+    height: 270px;
 }
 
 .footer .inner {
@@ -148,7 +149,7 @@ header .header-inner {
     align-items: center;
     column-gap: 24px;
     row-gap: 28px;
-    padding: 56px 100px;
+    padding: 90px 100px;
 }
 
 /* 왼쪽 문구: 두 줄 높이 전체를 차지하며 세로 중앙 */
@@ -226,7 +227,8 @@ header .header-inner {
 .footer .copy {
     grid-column: 3;
     grid-row: 2;
-    font-size: 13px;
+    font-size: 12px;
+    font-weight: 300;
     color: #d4d4d4;
     justify-self: end;
     text-align: right;
