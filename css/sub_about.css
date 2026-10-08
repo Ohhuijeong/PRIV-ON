@@ -75,16 +75,20 @@ h3 {
     line-height: 1.6;
     color: #555;
 }
+
 /* //privacy-life */
 
 /* why-privon */
 .why-privon {
     font-family: var(--font-textG);
     background: var(--color-sectionBg);
+    height: 100vh;
 }
 
 .why-privon .inner {
+    height: 100%;
     display: flex;
+    align-items: center;
 }
 
 .why-privon .left-area {
@@ -98,13 +102,14 @@ h3 {
 .right-area .right-area-item {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    align-items: end;
+    gap: 30px;
 }
 
 .right-area .right-area-item li {
+    padding: 30px 60px;
     display: flex;
     background: var(--color-white);
-    height: 150px;
     width: 500px;
     border-radius: 10px;
     box-shadow: var(--box-shadow);
