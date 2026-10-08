@@ -264,4 +264,309 @@
     }
 }
 
-/*  */
+/* 3번째 섹션 sec-threat */
+
+.sec-threat {
+    padding-block: 180px;
+}
+
+.sec-threat .sec-head {
+    margin-bottom: 150px;
+}
+
+.threat-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3칸 같은 폭 */
+    gap: 40px;
+}
+
+.threat-card {
+    padding: 36px;
+    background: #E6EDF5;
+    border-radius: 16px;
+}
+
+.threat-icon {
+    display: block;
+    /* 이미지 아래 빈틈 제거 */
+    width: 48px;
+    height: 48px;
+    margin-bottom: 40px;
+}
+
+.threat-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.threat-desc {
+    font-size: 19px;
+    color: #666666;
+    /* 카드 배경 대비 약 4.86:1 */
+    word-break: keep-all;
+}
+
+/* ===== sec-separate : 필수/선택 권한 분리 ===== */
+.sec-separate {
+    background: #e9f1fd;
+    padding-block: 70px 100px;
+}
+
+.sec-separate .title {
+    margin-bottom: 36px;
+}
+
+.sec-separate .sub-title {
+    font-size: 13px;
+    color: #0b4f87;
+    margin-bottom: 14px;
+}
+
+.separate-wrap {
+    display: flex;
+    align-items: center;
+    gap: 33px;
+}
+
+/* 왼쪽 흰 카드 */
+.perm-card {
+    flex-shrink: 0;
+    width: 287px;
+    padding: 22px 19px;
+    background: var(--color-white);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.perm-row {
+    display: flex;
+    gap: 30px;
+}
+
+.perm-icon {
+    flex-shrink: 0;
+    width: 57px;
+    height: 57px;
+    border-radius: 12px;
+    background: #dcecfb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.perm-icon--check {
+    color: #1a6dff;
+}
+
+.dashed-box {
+    width: 32px;
+    height: 32px;
+    border: 1.5px dashed #555;
+    background: #e6f1fb;
+}
+
+.perm-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.perm-label {
+    font-family: 'Noto Sans KR';
+    font-size: 11px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 2px;
+}
+
+.bar {
+    display: block;
+    height: 10px;
+    border-radius: 5px;
+    background: #d5dae6;
+}
+
+.bar-long {
+    width: 100%;
+}
+
+.bar-short {
+    width: 72px;
+}
+
+/* 오른쪽 설명 박스 */
+.perm-info {
+    flex: 1;
+    max-width: 355px;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.perm-info li {
+    padding: 22px 20px;
+    border-radius: 10px;
+}
+
+.perm-info h4 {
+    font-family: 'Noto Sans KR';
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.perm-info p {
+    font-family: 'Noto Sans KR';
+    font-size: 11px;
+}
+
+.info-required {
+    background: #f6f3f2;
+    color: #222;
+}
+
+.info-required p {
+    color: #666;
+}
+
+.info-optional {
+    background: #0b4f87;
+    color: var(--color-white);
+}
+
+.info-optional p {
+    color: #c8d8e8;
+}
+
+/* ===== sec-principle : 핵심 준수 원칙 표 ===== */
+.sec-principle {
+    background: var(--color-white);
+    padding-block: 90px 130px;
+}
+
+.sec-principle .sub-title {
+    font-size: 13px;
+    color: #0b4f87;
+    margin-bottom: 14px;
+}
+
+.sec-principle .title {
+    margin-bottom: 60px;
+}
+
+.principle-table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: 'Noto Sans KR';
+    text-align: left;
+    table-layout: fixed;
+}
+
+.principle-table col:nth-child(1),
+.principle-table th:nth-child(1) {
+    width: 25%;
+}
+
+.principle-table thead tr {
+    background: #f7f9fc;
+    border-bottom: 2px solid #1b8ad6;
+}
+
+.principle-table thead th {
+    padding: 14px 18px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #222;
+}
+
+.principle-table tbody tr {
+    border-bottom: 1px solid #eceff3;
+}
+
+.principle-table tbody th,
+.principle-table tbody td {
+    padding: 16px 18px;
+    font-size: 11px;
+    color: #555;
+}
+
+.principle-table tbody th {
+    font-weight: 700;
+    color: #000;
+}
+
+.principle-table td.guide {
+    font-weight: 700;
+    color: #0b86d1;
+}
+
+/* 접근성용 숨김 텍스트 */
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+/* =========================================
+   8. 출처 및 근거
+   ========================================= */
+.source.bg-light {
+    background: var(--color-sectionBg);
+}
+
+.source-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 왼쪽 그림 / 오른쪽 카드 반반 */
+    align-items: center;
+    /* 세로 가운데 정렬 */
+    gap: 120px;
+    padding-inline: 50px;
+}
+
+.source-visual img {
+    display: block;
+    /* 이미지 아래 빈 틈 제거 */
+    width: 100%;
+    height: auto;
+}
+
+.source-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.source-list li {
+    padding: 44px 40px;
+    background: #F4F7FB;
+    border-radius: 16px;
+}
+
+.source-list strong {
+    display: block;
+    /* strong은 원래 inline → margin이 안 먹으므로 block으로 */
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--color-darkGray);
+    margin-bottom: 18px;
+}
+
+.source-list strong.point {
+    color: var(--color-primaryLight);
+}
+
+.source-list p {
+    font-size: 18px;
+    color: #666666;
+}
