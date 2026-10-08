@@ -11,6 +11,10 @@
 /* font-family: 'Noto Sans KR';  */
 @import url('https://fonts.googleapis.com/earlyaccess/notosanskr.css');
 
+/* caveat - about 페이지에만 사용 */
+/* font-family: "Caveat"; */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+
 /* 어그로체 */
 @font-face {
     font-family: 'Aggravo';
