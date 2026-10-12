@@ -89,3 +89,29 @@ if (statList) {
 
     observer.observe(statList);
 }
+
+// 5번 섹션: '선택 접근 권한' 카드 물결 밑줄 그어지기
+const wavyText = document.querySelector('.info-optional em');
+const wavyCard = document.querySelector('.info-optional');
+
+// '동작 줄이기' 설정 사용자는 ani를 안 붙임 → 밑줄이 처음부터 보임 (접근성)
+const reduceWavy = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (wavyText && wavyCard && !reduceWavy) {
+    // JS가 실행될 때만 숨김 → 오류가 나도 밑줄은 보임
+    wavyText.classList.add('ani');
+
+    const underlineObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.intersectionRatio >= 0.6) {
+                // 카드가 60% 이상 보이면 → 그어지기
+                wavyText.classList.add('show');
+            } else if (!entry.isIntersecting) {
+                // 화면 밖으로 완전히 나가면 → 초기화
+                wavyText.classList.remove('show');
+            }
+        });
+    }, { threshold: [0, 0.6] });
+
+    underlineObserver.observe(wavyCard); // 글자 대신 카드 전체를 감시
+}

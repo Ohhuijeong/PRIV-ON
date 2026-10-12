@@ -310,192 +310,219 @@
 
 /* ===== sec-separate : 필수/선택 권한 분리 ===== */
 .sec-separate {
-    background: #e9f1fd;
-    padding-block: 70px 100px;
+    background: var(--color-sectionBg);
+    padding-block: 100px;          /* 시안 기준 위아래 약 100px (추정) */
 }
 
 .sec-separate .title {
-    margin-bottom: 36px;
-}
-
-.sec-separate .sub-title {
-    font-size: 13px;
-    color: #0b4f87;
-    margin-bottom: 14px;
+    margin-bottom: 60px;
 }
 
 .separate-wrap {
     display: flex;
     align-items: center;
-    gap: 33px;
+    gap: 90px;
 }
 
 /* 왼쪽 흰 카드 */
 .perm-card {
     flex-shrink: 0;
-    width: 287px;
-    padding: 22px 19px;
+    width: 560px;
+    padding: 40px 36px;
     background: var(--color-white);
-    border-radius: 16px;
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 36px;
 }
 
 .perm-row {
     display: flex;
-    gap: 30px;
+    align-items: center;           /* 아이콘과 글자 세로 가운데 */
+    gap: 48px;
 }
 
 .perm-icon {
     flex-shrink: 0;
-    width: 57px;
-    height: 57px;
-    border-radius: 12px;
-    background: #dcecfb;
+    width: 112px;
+    height: 112px;
+    border-radius: 16px;
+    background: #DCECFB;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.perm-icon svg {
+    width: 64px;
+    height: 64px;
+}
+
 .perm-icon--check {
-    color: #1a6dff;
+    color: #1A6DFF;                /* svg stroke="currentColor"가 이 색을 씀 */
 }
 
 .dashed-box {
-    width: 32px;
-    height: 32px;
-    border: 1.5px dashed #555;
-    background: #e6f1fb;
+    width: 64px;
+    height: 64px;
+    border: 2px dashed var(--color-darkGray);
 }
 
 .perm-body {
     flex: 1;
+    min-width: 0;                  /* flex 자식이 넘치지 않게 */
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 22px;
 }
 
 .perm-label {
-    font-family: 'Noto Sans KR';
-    font-size: 11px;
+    font-size: 18px;
     font-weight: 700;
     color: #000;
-    margin-bottom: 2px;
 }
 
+/* 회색 막대 (텍스트 자리 표시) */
 .bar {
     display: block;
-    height: 10px;
-    border-radius: 5px;
-    background: #d5dae6;
+    height: 20px;
+    border-radius: 10px;
+    background: #D5DAE6;
 }
 
 .bar-long {
-    width: 100%;
+    width: 290px;
+    max-width: 100%;
 }
 
 .bar-short {
-    width: 72px;
+    width: 140px;
 }
 
 /* 오른쪽 설명 박스 */
 .perm-info {
     flex: 1;
-    max-width: 355px;
-    margin-left: 0;
+    max-width: 690px;              /* 시안: 오른쪽 끝까지 꽉 차지 않음 */
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 24px;
 }
 
 .perm-info li {
-    padding: 22px 20px;
-    border-radius: 10px;
+    padding: 34px 36px;
+    border-radius: 12px;
 }
 
 .perm-info h4 {
-    font-family: 'Noto Sans KR';
-    font-size: 15px;
+    font-size: 24px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 14px;
 }
 
 .perm-info p {
-    font-family: 'Noto Sans KR';
-    font-size: 11px;
+    font-size: 18px;
+    word-break: keep-all;
 }
 
 .info-required {
-    background: #f6f3f2;
+    background: #F6F3F2;
     color: #222;
 }
 
 .info-required p {
-    color: #666;
+    color: #666666;                /* 배경 대비 약 5.2:1 */
 }
 
 .info-optional {
-    background: #0b4f87;
+    background: var(--color-subTitle);
     color: var(--color-white);
 }
 
 .info-optional p {
-    color: #c8d8e8;
+    color: #C8D8E8;                /* 배경 대비 약 5.5:1 */
+}
+
+/* 물결 밑줄 (선 대신 ::after로 그림 → 길이 애니메이션 가능) */
+.info-optional em {
+    position: relative;      /* ::after 위치 기준 */
+    display: inline-block;
+    padding-bottom: 8px;     /* 물결이 들어갈 자리 */
+    font-style: normal;      /* em 기본 기울임 해제 */
+}
+
+.info-optional em::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;             /* 기본: 다 그어진 상태 (JS 없어도 보임) */
+    height: 8px;
+    /* 물결 한 조각(16x8) SVG를 가로로 반복 */
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='8' viewBox='0 0 16 8'%3E%3Cpath d='M0 4 Q4 0 8 4 T16 4' fill='none' stroke='%23C8D8E8' stroke-width='1.5'/%3E%3C/svg%3E") repeat-x left center / 16px 8px;
+}
+
+/* JS가 ani를 붙이면: 처음엔 길이 0 */
+.info-optional em.ani::after {
+    width: 0;
+    transition: width 1s ease-out;
+}
+
+/* 화면에 들어오면(show): 왼쪽 → 오른쪽으로 그어짐 */
+.info-optional em.ani.show::after {
+    width: 100%;
+    transition-delay: 0.3s;  /* 카드가 보이고 살짝 뒤에 시작 */
 }
 
 /* ===== sec-principle : 핵심 준수 원칙 표 ===== */
 .sec-principle {
     background: var(--color-white);
-    padding-block: 90px 130px;
-}
-
-.sec-principle .sub-title {
-    font-size: 13px;
-    color: #0b4f87;
-    margin-bottom: 14px;
+    padding-block: 90px 200px;
 }
 
 .sec-principle .title {
     margin-bottom: 60px;
 }
 
+/* 표 바깥 박스: 좌우 들여쓰기 + 넘치면 가로 스크롤 */
+.principle-wrap {
+    overflow-x: auto;
+    padding-inline: 30px;
+}
+
+.principle-wrap:focus-visible {
+    outline: 3px solid var(--color-primaryLight);
+    outline-offset: 3px;
+}
+
 .principle-table {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-collapse: collapse;
-    font-family: 'Noto Sans KR';
+    min-width: 640px;          /* 이보다 좁아지면 가로 스크롤 */
+    border-collapse: collapse; /* 칸 사이 테두리 겹치기 */
+    table-layout: fixed;       /* 첫 줄(thead) 너비대로 열 고정 */
+    font-family: var(--font-textN);
     text-align: left;
-    table-layout: fixed;
+    word-break: keep-all;      /* 한글 단어 중간 줄바꿈 방지 */
 }
 
-.principle-table col:nth-child(1),
-.principle-table th:nth-child(1) {
-    width: 25%;
-}
+/* 열 너비: 시안 비율 (합계 100%) */
+.principle-table thead th:nth-child(1) { width: 27%; }
+.principle-table thead th:nth-child(2) { width: 44%; }
+.principle-table thead th:nth-child(3) { width: 29%; }
 
-.principle-table thead tr {
-    background: #f7f9fc;
-    border-bottom: 2px solid #1b8ad6;
+.principle-table th,
+.principle-table td {
+    padding: 22px 36px;
+    border-bottom: 1px solid #E3E6EA;
+    font-size: 18px;
 }
 
 .principle-table thead th {
-    padding: 14px 18px;
-    font-size: 12px;
-    font-weight: 500;
+    background: #F7F8FA;
+    font-family: var(--font-textG);   /* 지마켓산스 */
+    font-size: 20px;
+    font-weight: 500;                 /* 지마켓산스 Medium */
     color: #222;
-}
-
-.principle-table tbody tr {
-    border-bottom: 1px solid #eceff3;
-}
-
-.principle-table tbody th,
-.principle-table tbody td {
-    padding: 16px 18px;
-    font-size: 11px;
-    color: #555;
+    border-bottom: 3px solid var(--color-primaryLight);
 }
 
 .principle-table tbody th {
@@ -503,18 +530,24 @@
     color: #000;
 }
 
-.principle-table td.guide {
-    font-weight: 700;
-    color: #0b86d1;
+.principle-table td {
+    color: var(--color-darkGray);
 }
 
-/* 접근성용 숨김 텍스트 */
+.principle-table .principle-guide {
+    font-weight: 700;
+    color: var(--color-primaryLight);
+}
+
+/* 접근성: 화면에선 숨기고 스크린리더는 읽음 */
 .blind {
     position: absolute;
     width: 1px;
     height: 1px;
+    margin: -1px;
     overflow: hidden;
-    clip: rect(0 0 0 0);
+    clip-path: inset(50%);  /* clip은 예전 방식이라 clip-path로 */
+    white-space: nowrap;
 }
 
 /* =========================================
